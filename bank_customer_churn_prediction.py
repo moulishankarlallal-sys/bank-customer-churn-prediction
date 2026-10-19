@@ -8,9 +8,13 @@ Original file is located at
 """
 
 import os
-import pandas as pd
-import numpy as np
+import glob
+import json
+import shutil
+ 
 import joblib
+import numpy as np
+import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
@@ -33,15 +37,36 @@ from sklearn.metrics import (
 
 print("All libraries imported successfully!")
 
-# Find the uploaded CSV filename
-csv_files = [name for name in uploaded.keys()
-             if name.lower().endswith(".csv")]
+import glob
 
-if not csv_files:
-    raise ValueError("Please upload a CSV file.")
-
-file_path = csv_files[0]
-
+file_path = "Churn_Modelling.csv"   # change this if your CSV has another name
+ 
+if not os.path.exists(file_path):
+    # fall back to the first CSV found in the script's folder
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    found = glob.glob(os.path.join(script_dir, "*.csv"))
+    if not found:
+        raise FileNotFoundError(
+            "CSV file not found. Put your CSV in the same folder as this "
+            "script and set file_path to its name."
+        )
+    file_path = found[0]
+ 
+df = pd.read_csv(file_path)
+ 
+print("Dataset loaded successfully from:", file_path)
+print("Number of rows and columns:", df.shape)
+print("\nColumn names:")
+print(df.columns.tolist())
+print("\nFirst five records:")
+print(df.head())
+print("\nMissing values in each column:")
+print(df.isnull().sum())
+print("\nDataset information:")
+df.info()
+ 
+os.makedirs("artifacts", exist_ok=True)
+ 
 # Load the dataset
 df = pd.read_csv(file_path)
 
