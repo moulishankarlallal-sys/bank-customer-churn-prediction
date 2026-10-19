@@ -42,6 +42,8 @@ if not csv_files:
 
 file_path = csv_files[0]
 
+file_path = "Churn_Modelling.csv"   # put your CSV in the same folder as the script
+
 # Load the dataset
 df = pd.read_csv(file_path)
 
