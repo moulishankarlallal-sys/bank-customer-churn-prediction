@@ -8,7 +8,7 @@ Original file is located at
     https://colab.research.google.com/drive/10X_iEXq0EuhXkfJDqrqyXh3LR-pDaTJT
 """
 
-!pip install -q pandas numpy scikit-learn matplotlib joblib
+pip install pandas numpy scikit-learn matplotlib joblib
 
 import pandas as pd
 import numpy as np
