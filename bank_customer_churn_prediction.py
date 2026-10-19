@@ -33,7 +33,8 @@ print("Libraries imported successfully!")
 df = pd.read_csv("European Bank.csv")
 
 print("Dataset shape:", df.shape)
-display(df.head())
+def display(obj):
+    print(obj)
 
 print("Column names:")
 print(df.columns.tolist())
