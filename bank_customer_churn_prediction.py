@@ -10,6 +10,7 @@ Original file is located at
 
 pip install pandas numpy scikit-learn matplotlib joblib
 
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
