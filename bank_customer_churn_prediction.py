@@ -30,7 +30,7 @@ from sklearn.metrics import (
 
 print("Libraries imported successfully!")
 
-df = pd.read_csv("/content/European Bank.csv")
+df = pd.read_csv("European Bank.csv")
 
 print("Dataset shape:", df.shape)
 display(df.head())
