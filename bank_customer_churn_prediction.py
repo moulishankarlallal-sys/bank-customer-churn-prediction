@@ -194,19 +194,12 @@ display(
 )
 
 results.to_csv(
-    "/content/bank_customer_churn_predictions.csv",
+    "bank_customer_churn_predictions.csv",
     index=False
 )
 
-ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
-plt.title("Bank Customer Churn - Confusion Matrix")
-plt.tight_layout()
-plt.savefig("/content/churn_confusion_matrix.png", dpi=150)
-plt.show()
-
-joblib.dump(model, "/content/bank_customer_churn_model.joblib")
-
-print("All project outputs saved successfully!")
+plt.savefig("churn_confusion_matrix.png", dpi=150)
+joblib.dump(model, "bank_customer_churn_model.joblib")
 
 from google.colab import files
 
