@@ -201,8 +201,3 @@ results.to_csv(
 plt.savefig("churn_confusion_matrix.png", dpi=150)
 joblib.dump(model, "bank_customer_churn_model.joblib")
 
-from google.colab import files
-
-files.download("/content/bank_customer_churn_predictions.csv")
-files.download("/content/churn_confusion_matrix.png")
-files.download("/content/bank_customer_churn_model.joblib")
